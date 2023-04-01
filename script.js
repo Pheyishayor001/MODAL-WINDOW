@@ -16,11 +16,11 @@ const closeModal = function () {
   modal.classList.add('hidden');
   overLay.classList.add('hidden');
 };
-// this querySelectorAll gives a NODE List. its like an Array, but not an array. i.e it can be looped through.
+// this querySelectorAll gives a NODE List (log this to see console.log(btnsOpenModal);). its like an Array, but not an array. i.e it can be looped through.
 // it can also be selected individually using btnsOpenModal[i];
 
 for (let i = 0; i < btnsOpenModal.length; i++) {
-  // making use of this loop to add event to each individual button
+  // making use of this loop to add event to the individual buttons
 
   // NOTE: The closeModal function doesnt need the (). if it is inserted, the function will be called immediately. by not inserting it, it will only be called when the said button is clicked upon.
   btnsOpenModal[i].addEventListener('click', openModal);
@@ -28,7 +28,7 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
   /*btnsOpenModal[i].addEventListener('click', function () {
     modal.classList.remove('hidden');
     overLay.classList.remove('hidden');
-  });*/
+  });*/ // INITIAL WAY OF CALLING THE CODE BEFORE WRITING THE FUNCTION.
 }
 
 //adding an event listener to the close button
@@ -38,6 +38,7 @@ btnCloseModal.addEventListener('click', closeModal);
 overLay.addEventListener('click', closeModal);
 
 //KEYBOARD EVENT
+//Keyborad events are GLOBAL. thats why they are called on the document directly and not on any class or ID.
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
     //if the pressed key is Escape. AND IF modal does NOT(!) CONTAIN the ".hidden" class already...
